@@ -1,0 +1,20 @@
+<h1>All Kittens</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Cuteness</th>
+    <th>Softness</th>
+    <th></th>
+  </tr>
+  <% @kittens.each do |kitten| %>
+    <tr>
+      <td><%= kitten.name %></td>
+      <td><%= kitten.age %></td>
+      <td><%= kitten.cuteness %></td>
+      <td><%= kitten.softness %></td>
+      <td><%= link_to "Detail", kitten_path(kitten) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "Create a New Kitten", new_kitten_path, class: "new_kitten" %>
