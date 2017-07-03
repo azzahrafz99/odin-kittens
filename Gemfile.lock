@@ -55,6 +55,11 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    figaro (1.1.1)
+      thor (~> 0.14)
+    flickr_fu (0.3.4)
+      mime-types
+      xml-magic
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -161,6 +166,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xml-magic (0.1.1)
 
 PLATFORMS
   ruby
@@ -168,6 +174,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  figaro
+  flickr_fu
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

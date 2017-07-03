@@ -1,0 +1,7 @@
+<div class="flickr">
+  <ul>
+    <% photos.each do |row| %>
+      <%= link_to(image_tag(row.url, :border => 0, :size => '200x200'), row.url) %>
+    <% end -%>
+  </ul>
+</div>
