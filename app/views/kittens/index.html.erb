@@ -1,10 +1,20 @@
-<h1>Home Page</h1>
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:user_id, "user_id:") %>
-  <%= text_field_tag(:user_id) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<% cache ("flickr_sidebar") do %>
-  <%= render_flickr_sidebar_widget('12864272@N02') %>
-<% end %>
+<%= render 'layouts/header'%>
+<br>
+<div class="row search-form">
+  <div class="column column-50 column-offset-25">
+    <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:user_id, "User ID : ") %>
+    <%= text_field_tag(:user_id) %>
+    <%= submit_tag("Search") %>
+    <div class="row">
+      <div class="column column-25 column-offset-75">
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="row pic">
+  <div class="column column-50 column-offset-25">
+    <%= render_flickr_sidebar_widget('12864272@N02') %>
+  </div>
+</div>
