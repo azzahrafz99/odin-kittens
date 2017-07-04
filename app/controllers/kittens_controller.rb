@@ -3,8 +3,8 @@ class KittensController < ApplicationController
     @kittens = Kitten.all
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @kittens }
-      format.json { render :json => @kittens }
+      format.xml  { render xml: @kittens }
+      format.json { render json: @kittens }
     end
   end
 
@@ -12,22 +12,21 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @kitten }
-      format.json { render :json => @kitten }
+      format.xml  { render xml: @kitten }
+      format.json { render json: @kitten }
     end
   end
 
   def new
-    @kitten = Kitten.new
-  end
-
-  def create
     @kitten = Kitten.new(
       name: params[:kitten][:name],
       age: params[:kitten][:age],
       cuteness: params[:kitten][:cuteness],
       softness: params[:kitten][:softness]
     )
+  end
+
+  def create
     @kitten.save
     redirect_to kittens_path
   end
