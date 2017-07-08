@@ -2,9 +2,11 @@
 <br>
 <div class="row">
   <div class="column column-50 column-offset-25">
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
+    <div class="row">
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: "flash" %>
+        <% end -%>
+    </div>
     <table>
       <tr>
         <th>Name</th>
@@ -35,10 +37,5 @@
       </div>
     </div>
     <% end %>
-  </div>
-</div>
-<div class="row pic">
-  <div class="column column-50 column-offset-25">
-    <%= render_flickr_sidebar_widget('12864272@N02') %>
   </div>
 </div>

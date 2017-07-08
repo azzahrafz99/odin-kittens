@@ -8,13 +8,13 @@ class Kitten < ApplicationRecord
 
   def validate_cuteness
     unless cuteness == 'low' || cuteness == 'medium' || cuteness == 'high'
-      errors.add(:cuteness, "Fill with low, medium, or high!")
+      errors.add(:cuteness, 'Fill with low, medium, or high!')
     end
   end
 
   def validate_softness
     unless softness == 'low' || softness == 'medium' || softness == 'high'
-      errors.add(:softness, "Fill with low, medium, or high!")
+      errors.add(:softness, 'Fill with low, medium, or high!')
     end
   end
 end

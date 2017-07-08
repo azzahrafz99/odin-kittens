@@ -1,4 +1,5 @@
 @import "milligram";
+
 .header {
   background-color: #F4F5F6;
   margin-top: -10px;
@@ -26,4 +27,11 @@
       opacity: 0.8;
     }
   }
+}
+
+.flash {
+  background-color: #a667ce;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
 }
