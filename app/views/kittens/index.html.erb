@@ -1,5 +1,29 @@
 <%= render 'layouts/header'%>
 <br>
+<div class="row">
+  <div class="column column-50 column-offset-25">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Softness</th>
+        <th>Cuteness</th>
+      </tr>
+      <% @kittens.each do |kitten| %>
+      <tr>
+        <td><%= kitten.name %></td>
+        <td><%= kitten.age %></td>
+        <td><%= kitten.softness %></td>
+        <td><%= kitten.cuteness %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Create new kitten', new_kitten_path%>
+  </div>
+</div>
 <div class="row search-form">
   <div class="column column-50 column-offset-25">
     <%= form_tag("/search", method: "get") do %>

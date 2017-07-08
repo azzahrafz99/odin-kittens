@@ -18,17 +18,18 @@ class KittensController < ApplicationController
   end
 
   def new
-    @kitten = Kitten.new(
-      name: params[:kitten][:name],
-      age: params[:kitten][:age],
-      cuteness: params[:kitten][:cuteness],
-      softness: params[:kitten][:softness]
-    )
+    @kitten = Kitten.new
   end
 
   def create
-    @kitten.save
-    redirect_to kittens_path
+    @kitten = Kitten.create(kitten_params)
+    if @kitten.valid?
+      flash[:notice] = "Kitten added successfully!"
+      redirect_to kittens_path
+    else
+      flash[:errors] = "Warning : #{@kitten.errors.full_messages}"
+      redirect_to kittens_path
+    end
   end
 
   def edit
