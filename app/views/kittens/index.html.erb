@@ -20,6 +20,9 @@
         <td><%= kitten.age %></td>
         <td><%= kitten.softness %></td>
         <td><%= kitten.cuteness %></td>
+        <td><%= link_to 'Edit',edit_kitten_path(kitten)%></td>
+        <td><%= link_to "Delete", kitten_path(kitten), class: "btn-floating red", method: :delete, data:
+{confirm: "Really delete the kitten?"} %></td>
       </tr>
       <% end %>
     </table>
@@ -37,5 +40,10 @@
       </div>
     </div>
     <% end %>
+  </div>
+</div>
+<div class="row pic">
+  <div class="column column-50 column-offset-25">
+    <%= render_flickr_sidebar_widget('12864272@N02') %>
   </div>
 </div>

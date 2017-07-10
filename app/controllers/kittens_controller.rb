@@ -38,11 +38,15 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
     @kitten.update(kitten_params)
-    redirect_to kittens_path
+    if @kitten.valid?
+      flash[:notice] = "Kitten has been updated!"
+      redirect_to kittens_path
+    end
   end
 
   def destroy
     @kitten = Kitten.find(params[:id]).destroy
+    flash[:notice] = "Kitten has been deleted!"
     redirect_to kittens_path
   end
 
