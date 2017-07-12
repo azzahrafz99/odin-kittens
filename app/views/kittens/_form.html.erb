@@ -1,9 +1,14 @@
 <%= form_for(@kitten, html: {multipart: true}) do |f| %>
-  <ul>
-    <% @kitten.errors.full_messages.each do |erros| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+  <% unless @kitten.errors.count.zero? %>
+    <div class="flash">
+      <p><strong><%= pluralize(@kitten.errors.count, "error") %> prohibited this information from being saved:</strong></p>
+      <ul>
+        <% @kitten.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :name%><br />
     <%= f.text_field :name%><br />

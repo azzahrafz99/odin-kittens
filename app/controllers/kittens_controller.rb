@@ -25,10 +25,10 @@ class KittensController < ApplicationController
     @kitten = Kitten.create(kitten_params)
     if @kitten.valid?
       flash[:notice] = 'Kitten added successfully!'
+      redirect_to kittens_path
     else
-      flash[:errors] = "Warning : #{@kitten.errors.full_messages}"
+      render :new
     end
-    redirect_to kittens_path
   end
 
   def edit
