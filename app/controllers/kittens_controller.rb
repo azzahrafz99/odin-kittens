@@ -1,6 +1,5 @@
 class KittensController < ApplicationController
   before_action :kitten, only: [:edit, :update, :destroy]
-
   respond_to :html
 
   def index
@@ -32,13 +31,20 @@ class KittensController < ApplicationController
     if @kitten.valid?
       flash[:notice] = "Kitten has been updated!"
       redirect_to kittens_path
+    else
+      render :edit
     end
   end
 
   def destroy
-    @kitten.destroy
-    flash[:notice] = "Kitten has been deleted!"
+    if @kitten.destroy
+      flash[:error] = "Kitten has been deleted!"
+    end
     redirect_to kittens_path
+  end
+
+  def routing
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
   private

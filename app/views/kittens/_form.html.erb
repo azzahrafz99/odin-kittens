@@ -9,23 +9,98 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    <%= f.label :name%><br />
-    <%= f.text_field :name%><br />
-  </p>
-  <p>
-    <%= f.label :age%><br />
-    <%= f.text_field :age%><br />
-  </p>
-  <p>
-    <%= f.label :cuteness %><br />
-    <%= f.text_field :cuteness%><br />
-  </p>
-  <p>
-    <%= f.label :softness %><br />
-    <%= f.text_field :softness%><br />
-  </p>
-  <p>
+  <br>
+  <div class="row">
+    <div class="column column-10">
+      <%= f.label :name%><br />
+    </div>
+    <div class="column column-50">
+      <%= f.text_field :name%><br />
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="column column-10">
+      <%= f.label :age%><br />
+    </div>
+    <div class="column column-20">
+      <%= f.number_field :age %>
+    </div>
+  </div>
+  <br>
+  <%= f.label :cuteness %>
+  <div class="row">
+    <div class="row">
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:cuteness, "low") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:cuteness_low, "Low") %>
+          </div>
+        </div>
+      </div>
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:cuteness, "medium") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:cuteness_medium, "Medium") %>
+          </div>
+        </div>
+      </div>
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:cuteness, "high") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:cuteness_high, "High") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <%= f.label :softness %>
+  <div class="row">
+    <div class="row">
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:softness, "low") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:softness_low, "Low") %>
+          </div>
+        </div>
+      </div>
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:softness, "medium") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:softness_medium, "Medium") %>
+          </div>
+        </div>
+      </div>
+      <div class="column column-20">
+        <div class="row">
+          <div class="column column-50">
+            <%= f.radio_button(:softness, "high") %>
+          </div>
+          <div class="column column-50">
+            <%= label_tag(:softness_high, "High") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
     <%= f.submit%>
-  </p>
+  </div>
 <% end %>

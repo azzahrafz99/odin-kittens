@@ -4,15 +4,19 @@
   <div class="column column-50 column-offset-25">
     <div class="row">
         <% flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, class: "flash" %>
+          <%= content_tag :div, msg, class: "flash-success" %>
         <% end -%>
     </div>
+    <br>
+    <center><h1>Kitten List</h1></center>
+    <%= link_to 'Create new kitten', new_kitten_path, class: "button button-outline"%>
     <table>
       <tr>
         <th>Name</th>
         <th>Age</th>
         <th>Softness</th>
         <th>Cuteness</th>
+        <th colspan="2"><center>Action</center></th>
       </tr>
       <% @kittens.each do |kitten| %>
       <tr>
@@ -20,15 +24,18 @@
         <td><%= kitten.age %></td>
         <td><%= kitten.softness %></td>
         <td><%= kitten.cuteness %></td>
-        <td><%= link_to 'Edit',edit_kitten_path(kitten)%></td>
-        <td><%= link_to "Delete", kitten_path(kitten), class: "btn-floating red", method: :delete, data:
-{confirm: "Really delete the kitten?"} %></td>
+        <td><%= link_to 'Edit',edit_kitten_path(kitten), class: 'button yellow'%></td>
+        <td><%= link_to "Delete", kitten_path(kitten), class: "button red", method: :delete, data:
+{confirm: "Really want to delete #{kitten.name}?"} %></td>
       </tr>
       <% end %>
     </table>
-    <%= link_to 'Create new kitten', new_kitten_path%>
+    <% if @kittens.count.zero? %>
+      <center><p>No kitten available</p></center>
+    <% end %>
   </div>
 </div>
+<hr>
 <div class="row search-form">
   <div class="column column-50 column-offset-25">
     <%= form_tag("/search", method: "get") do %>
@@ -40,10 +47,5 @@
       </div>
     </div>
     <% end %>
-  </div>
-</div>
-<div class="row pic">
-  <div class="column column-50 column-offset-25">
-    <%= render_flickr_sidebar_widget('12864272@N02') %>
   </div>
 </div>

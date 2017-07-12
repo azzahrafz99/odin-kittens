@@ -36,3 +36,29 @@
   border-radius: 4px;
   border: 1px solid;
 }
+
+.flash-success {
+  background-color: #DFF0D8;
+  color: #3C763D;
+  padding: 25px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.yellow {
+  background-color: #f7b80c;
+  border: #f7b80c;
+  &:hover {
+    background-color: #FDD837;
+    border: #FDD837;
+  }
+}
+
+.red {
+  background-color: #F44336;
+  border: #F44336;
+  &:hover {
+    background-color: #f95448;
+    border: #f95448;
+  }
+}

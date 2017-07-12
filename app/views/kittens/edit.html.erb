@@ -1,2 +1,8 @@
-<h1>Edit Kitten</h1>
-<%= render partial: 'form' %>
+<div class="row">
+  <div class="column column-50 column-offset-25">
+    <%= link_to 'Back', kittens_path, class: 'button' %>
+    <center><h2>Edit Kitten</h2></center>
+    <hr>
+    <%= render partial: 'form' %>
+  </div>
+</div>
