@@ -1,20 +1,14 @@
 class KittensController < ApplicationController
+  before_action :kitten, only: [:edit, :update, :destroy]
+
+  respond_to :html
+
   def index
     @kittens = Kitten.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @kittens }
-      format.json { render json: @kittens }
-    end
   end
 
   def show
     @kitten = Kitten.find(params[:id])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @kitten }
-      format.json { render json: @kitten }
-    end
   end
 
   def new
@@ -31,12 +25,9 @@ class KittensController < ApplicationController
     end
   end
 
-  def edit
-    @kitten = Kitten.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @kitten = Kitten.find(params[:id])
     @kitten.update(kitten_params)
     if @kitten.valid?
       flash[:notice] = "Kitten has been updated!"
@@ -45,7 +36,7 @@ class KittensController < ApplicationController
   end
 
   def destroy
-    @kitten = Kitten.find(params[:id]).destroy
+    @kitten.destroy
     flash[:notice] = "Kitten has been deleted!"
     redirect_to kittens_path
   end
@@ -54,5 +45,9 @@ class KittensController < ApplicationController
 
   def kitten_params
     params.require(:kitten).permit(:name, :age, :cuteness, :softness)
+  end
+
+  def kitten
+    @kitten = Kitten.find(params[:id])
   end
 end

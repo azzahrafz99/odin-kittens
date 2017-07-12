@@ -28,6 +28,7 @@ gem 'figaro'
 gem 'milligram'
 
 gem 'rubocop'
+gem 'responders'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
