@@ -1,9 +1,14 @@
-<p>Name : <b><%= @kitten.name %></b></p>
-<p>Age : <%= @kitten.age %></p>
-<p>Cuteness : <%= @kitten.cuteness %></p>
-<p>Softness : <%= @kitten.softness %></p>
-
-<%= link_to "Edit", edit_kitten_path(@kitten) %>
-<%= link_to "Delete", kitten_path(@kitten), method: :delete, data:
-{confirm: "Really delete the kitten?"} %><br />
-<%= link_to "<< Back to Kittens List", kittens_path %>
+<div class="">
+  <center><h3>Kitten's Detail</h3></center>
+</div>
+<div class="row">
+  <div class="column column-50 column-offset-25">
+    <blockquote>
+      <h4><%= @kitten.name %></h4>
+    </blockquote>
+    <p>Age : <%= @kitten.age %> Months</p>
+    <p>Cuteness : <%= @kitten.cuteness %></p>
+    <p>Softness : <%= @kitten.softness %></p>
+    <%= link_to "<< Back to Kittens List", kittens_path, class: 'button' %>
+  </div>
+</div>

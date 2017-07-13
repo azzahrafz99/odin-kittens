@@ -1,6 +1,6 @@
 class Kitten < ApplicationRecord
   validates :name, presence: true
-  validates :age, numericality: { only_integer: true }
+  validates :age, numericality: { only_integer: true, greater_than: 0 }
   validates :softness, presence: true
   validates :cuteness, presence: true
   validate :validate_cuteness

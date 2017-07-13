@@ -20,7 +20,7 @@
       </tr>
       <% @kittens.each do |kitten| %>
       <tr>
-        <td><%= kitten.name %></td>
+        <td><%= link_to kitten.name, kitten_path(kitten) %></td>
         <td><%= kitten.age %></td>
         <td><%= kitten.softness %></td>
         <td><%= kitten.cuteness %></td>
