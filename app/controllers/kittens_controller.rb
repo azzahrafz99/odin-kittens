@@ -29,7 +29,7 @@ class KittensController < ApplicationController
   def update
     @kitten.update(kitten_params)
     if @kitten.valid?
-      flash[:notice] = "Kitten has been updated!"
+      flash[:notice] = 'Kitten has been updated!'
       redirect_to kittens_path
     else
       render :edit
@@ -37,14 +37,12 @@ class KittensController < ApplicationController
   end
 
   def destroy
-    if @kitten.destroy
-      flash[:error] = "Kitten has been deleted!"
-    end
+    flash[:error] = 'Kitten has been deleted!' if @kitten.destroy
     redirect_to kittens_path
   end
 
   def routing
-    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
   end
 
   private

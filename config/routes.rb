@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :kittens
   root to: 'kittens#index'
   get '/search', to: 'flickrs#show'
-  match '*a', :to => 'kittens#routing', via: :get
+  match '*a', to: 'kittens#routing', via: :get
 end
